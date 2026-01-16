@@ -11,7 +11,8 @@ const Movies = ({ movies, label }: { movies: IMovie[]; label: string }) => {
   const [movieId, setMovieId] = useState<string | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
 
-  let hoverTimeout: NodeJS.Timeout;
+  // let hoverTimeout: NodeJS.Timeout;
+
 
   const handleMouseEnter = (movie: IMovie, movieId: string) => {
       setMovieData(movie);
