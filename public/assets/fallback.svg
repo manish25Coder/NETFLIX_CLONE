@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c1c1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#09090a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad)" />
+  <g transform="translate(400, 200)">
+    <!-- Film icon -->
+    <path d="M-30,-40 L30,-40 A10,10 0 0 1 40,-30 L40,30 A10,10 0 0 1 30,40 L-30,40 A10,10 0 0 1 -40,30 L-40,-30 A10,10 0 0 1 -30,-40 Z" fill="none" stroke="#e50914" stroke-width="4" />
+    <path d="M-40,-20 L-25,-20" fill="none" stroke="#e50914" stroke-width="4" />
+    <path d="M-40,0 L-25,0" fill="none" stroke="#e50914" stroke-width="4" />
+    <path d="M-40,20 L-25,20" fill="none" stroke="#e50914" stroke-width="4" />
+    <path d="M45,-20 L30,-20" fill="none" stroke="#e50914" stroke-width="4" />
+    <path d="M45,0 L30,0" fill="none" stroke="#e50914" stroke-width="4" />
+    <path d="M45,20 L30,20" fill="none" stroke="#e50914" stroke-width="4" />
+    <!-- Play symbol in center -->
+    <polygon points="-5,-10 10,0 -5,10" fill="#e50914" />
+  </g>
+  <text x="50%" y="300" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#8c8c8c" letter-spacing="1">PREVIEW UNSTABLE</text>
+  <text x="50%" y="335" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" fill="#555555">Thumbnail failed to load</text>
+</svg>

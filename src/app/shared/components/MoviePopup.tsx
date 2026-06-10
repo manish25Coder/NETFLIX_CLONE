@@ -14,6 +14,7 @@ const MoviePopu = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isVideoPlaying, setVideoPlaying] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const {user,updateUser,updateFavourites}=useUser()
 
   const isFavourite=useMemo(()=>{
@@ -93,10 +94,12 @@ const MoviePopu = ({
         />
         {!isVideoPlaying && (
           <Image
-            src={movie.thumbnailUrl}
+            src={hasError ? "/assets/fallback.svg" : movie.thumbnailUrl}
             alt={movie.title}
             fill
+            unoptimized
             className="object-cover"
+            onError={() => setHasError(true)}
           />
         )}
       </div>

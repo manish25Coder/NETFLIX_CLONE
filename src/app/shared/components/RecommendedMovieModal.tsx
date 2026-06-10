@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/Dialog";
 import Image from "next/image";
 import { IMovie, IRecommendedMovie } from "@/types/movie.types";
+import { useState } from "react";
 
 interface Props {
   isRecommendedMovieModalOpen: boolean;
@@ -15,7 +16,12 @@ const RecommendedMovieModal = ({
   recommendedMovie,
   movies,
 }: Props) => {
-     console.log("Modal received movies:", movies); // ✅ Add this debug log
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const handleImageError = (id: string) => {
+    setImageErrors((prev) => ({ ...prev, [id]: true }));
+  };
+
+  console.log("Modal received movies:", movies); // ✅ Add this debug log
   console.log("Modal received recommendedMovie:", recommendedMovie);
 
   return (
@@ -66,10 +72,12 @@ const RecommendedMovieModal = ({
                 {/* THUMBNAIL */}
                 <div className="relative w-[150px] h-[85px] rounded overflow-hidden">
                   <Image
-                    src={movie.thumbnailUrl}
+                    src={imageErrors[movie._id] ? "/assets/fallback.svg" : movie.thumbnailUrl}
                     alt={movie.title}
                     fill
+                    unoptimized
                     className="object-cover rounded-md"
+                    onError={() => handleImageError(movie._id)}
                   />
                 </div>
 

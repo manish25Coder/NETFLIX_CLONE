@@ -10,6 +10,11 @@ const Movies = ({ movies, label }: { movies: IMovie[]; label: string }) => {
   const [movieData, setMovieData] = useState<IMovie | null>(null);
   const [movieId, setMovieId] = useState<string | null>(null);
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  const handleImageError = (id: string) => {
+    setImageErrors((prev) => ({ ...prev, [id]: true }));
+  };
 
   // let hoverTimeout: NodeJS.Timeout;
 
@@ -59,10 +64,12 @@ const Movies = ({ movies, label }: { movies: IMovie[]; label: string }) => {
             >
               <div className="relative w-full h-full rounded-xl overflow-hidden">
                 <Image
-                  src={movie.thumbnailUrl}
+                  src={imageErrors[movie._id] ? "/assets/fallback.svg" : movie.thumbnailUrl}
                   alt={movie.title}
                   fill
+                  unoptimized
                   className="object-cover"
+                  onError={() => handleImageError(movie._id)}
                 />
               </div>
 
